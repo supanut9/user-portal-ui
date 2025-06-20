@@ -15,8 +15,15 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/fonts',
     '@nuxt/content',
+    '@sidebase/nuxt-auth',
   ],
   vite: {
     plugins: [tailwindcss()],
+  },
+  runtimeConfig: {
+    AUTH_SERVICE_BASE_URL: process.env.AUTH_SERVICE_BASE_URL,
+    NUXT_AUTH_SECRET: process.env.NUXT_AUTH_SECRET,
+    CLIENT_ID: process.env.CLIENT_ID,
+    CLIENT_SECRET: process.env.CLIENT_SECRET,
   },
 });
