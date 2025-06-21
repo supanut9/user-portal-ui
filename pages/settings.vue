@@ -2,13 +2,12 @@
   <UCard>
     <template #header>
       <h1 class="text-2xl font-bold">
-        Welcome
+        Settings
       </h1>
     </template>
 
     <div v-if="status === 'authenticated'">
-      <p>Welcome, {{ data?.user?.name }}!</p>
-      <p>Email: {{ data?.user?.email }}</p>
+      <p>Welcome, Setting</p>
     </div>
     <div v-else>
       <p>Please sign in to view your profile.</p>

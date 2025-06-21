@@ -5,11 +5,6 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
-  icon: {
-    serverBundle: {
-      collections: ['mdi', 'heroicons'],
-    },
-  },
 
   modules: [
     '@nuxt/eslint',
@@ -17,7 +12,6 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/scripts',
     '@nuxt/image',
-    '@nuxt/icon',
     '@nuxt/fonts',
     '@nuxt/content',
     '@sidebase/nuxt-auth',
