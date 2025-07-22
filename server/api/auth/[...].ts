@@ -26,7 +26,6 @@ export default NuxtAuthHandler({
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       profile(profile) {
-        console.log('temp profile', profile);
         return {
           id: profile.sub,
           name: profile.name,
@@ -36,4 +35,31 @@ export default NuxtAuthHandler({
       },
     },
   ],
+  callbacks: {
+    async signIn({ user, account, profile }) {
+      if (!account?.access_token || !account?.refresh_token) {
+        return false;
+      }
+
+      return true;
+    },
+    jwt({ token, user, account }) {
+      if (account) {
+        token.accessToken = account.access_token;
+        token.refreshToken = account.refresh_token;
+      }
+
+      return token;
+    },
+    session({ session, token, user }) {
+      if (token) {
+        session.accessToken = token.accessToken;
+        session.refreshToken = token.refreshToken;
+      }
+
+      console.log(session);
+
+      return session;
+    },
+  },
 });

@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 
-const isSidebarOpen = ref(true);
+const isSidebarOpen = ref(false);
 
 const handleResize = () => {
   if (window.innerWidth < 1024) {
